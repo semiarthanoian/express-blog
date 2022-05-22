@@ -1,0 +1,28 @@
+<%#
+   --- Các tham số ---
+   
+   layout: home | category | article | oops | admin
+   action: view | add | edit
+   data  : Data { ... }
+%>
+
+<% 
+   const makeHTML = function(layoutName) {
+      if (layoutName == "home")
+         return include("./layout/home", { action, data });
+      if (layoutName == "category")
+         return include("./layout/category/index", { action, data });
+      if (layoutName == "article")
+         return include("./layout/article/index", { action, data });
+      if (layoutName == "admin")
+         return include("./layout/admin", { action, data });
+      if (layoutName == "oops")
+         return include("./layout/oops", { action, data });
+      if ("any-other-case")
+         return `<h1>Unsupported layout</h1>`;
+   }; // makeHTML
+
+   var HTMLcode = makeHTML(layout);
+%>
+
+<%- HTMLcode %>

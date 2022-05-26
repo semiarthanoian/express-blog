@@ -46,5 +46,3 @@ app.listen(
       `Process ID: ${process.pid}`
    )
 );
-
-// `Process ID: ${process.pid}`
